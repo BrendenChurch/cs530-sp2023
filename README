@@ -3,7 +3,8 @@
 mail.py: A utility for sending mail for the project.
 
 In order to use mail.py you must first download your Google API OAuth credentials and save them in the working directory as credentials.json. The guide to do so from google may be found at https://developers.google.com/workspace/guides/create-credentials#oauth-client-id.
-You also must download the preqrequisite Google API pip extensions using the following command ```pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib```
+You also must download the preqrequisite Google API pip extensions using the following command:
+pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
 
 When you run mail.py, your web browser will open and prompt you to log in to access the API. Then your API key is copied to token.json so you will not need to authenticate for future attempts. This "refresh" key is good for years as long as the user signs into their account every so often and does not change their password.
 
