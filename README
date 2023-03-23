@@ -1,1 +1,15 @@
-init
+# cs530-sp2023
+
+mail.py: A utility for sending mail for the project.
+
+In order to use mail.py you must first download your Google API OAuth credentials and save them in the working directory as credentials.json. The guide to do so from google may be found at https://developers.google.com/workspace/guides/create-credentials#oauth-client-id.
+
+When you run mail.py, your web browser will open and prompt you to log in to access the API. Then your API key is copied to token.json so you will not need to authenticate for future attempts. This "refresh" key is good for years as long as the user signs into their account every so often and does not change their password.
+
+When you run mail.py with no arguments, it will just attempt this authentication step.
+
+mail.py accepts template files as arguments. When ran with arguments, it will attempt to send an email for each template specified. The templates are basic text files with the following format: the data up until the first newline will be the subject field of the email, the data up until the next newline or EOF will be the content field of the email. You may use the formatting macro {date} to substitute the systems current date/time in.
+
+Version History:
+
+v0.1: Basic Functionality: Allows users to send alert emails to themselves given a template file. 3 Basic templates added for system connecting, system alert, and system disconnecting.
