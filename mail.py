@@ -15,6 +15,7 @@ from email.message import EmailMessage
 
 SCOPES = ['https://www.googleapis.com/auth/gmail.modify']
 
+# Authorizes the user and stores the token and refresh token in token.json
 def auth():
   creds = None
   # If token.json already exists, use it as the credential
@@ -31,6 +32,7 @@ def auth():
       token.write(creds.to_json())
   return creds
 
+# Send a message given the specified information.
 def send_message(subject, content):
   # Ensure user is authorized.
   creds = auth()
@@ -64,7 +66,7 @@ def send_message(subject, content):
     message_sent = None
   return send_message
   
-  
+# Send a message given the specified template.
 def send_template(template):
   # Read template file
   f = open(template, "r")
@@ -76,7 +78,8 @@ def send_template(template):
   # Create email.
   subject, content = _[0].format(date=time), _[1].format(date=time)
   send_message(subject, content)
-  
+
+# Check arguments, run auth, send emails if neccessary.
 def main():
   # If there are no arguments specified, run authentication.
   if len(sys.argv) == 1:
